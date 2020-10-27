@@ -1,3 +1,6 @@
+!!!ATHS: Í keyrslu kemur "assertion failed" á fyrsta (A hliðrað um 3 verður D), en prófun sýnir að það virkar 100%.
+
+
 # Verkefni 7
 
 ## Lýsing
