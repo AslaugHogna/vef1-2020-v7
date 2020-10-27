@@ -4,18 +4,12 @@
 
 const LETTERS = `AÁBDÐEÉFGHIÍJKLMNOÓPRSTUÚVXYÝÞÆÖ`;
 
-/**
- * Byrja forrit.
- */
-function start() {
-  alert('Halló!')
-}
-
 do {
   play();
 } while (confirm('Reyna aftur?'));
 
 function play() {
+  alert('Halló!');
   let inp = prompt('Hvort viltu kóða eða afkóða streng? Skrifaðu "kóða" eða "afkóða"');
 
   if (inp == "kóða") {
@@ -26,14 +20,15 @@ function play() {
       alert(`${input} er ekki heiltala á bilinu [1,31]. Reyndu aftur.`);
       return;
     }
-    let str = prompt(`Gefðu upp strenginn sem á að afkóða með hliðrun ${n}:`);
-    if (typeof str === 'string'){
-    let STR = str.toLocaleUpperCase();
-    if (invalid(STR)) {
-      alert(`Þú gafst upp stafi sem ekki er hægt að afkóða. Nota þarf stafi úr íslenska stafrófinu. Reyndu aftur.`);
-      return;
-    }
-    encode(STR, n);
+
+    let str = prompt(`Gefðu upp strenginn sem á að kóða með hliðrun ${n}:`);
+    if (typeof str === 'string') {
+      let STR = str.toLocaleUpperCase();
+      if (invalid(STR)) {
+        alert(`Þú gafst upp stafi sem ekki er hægt að kóða. Nota þarf stafi úr íslenska stafrófinu. Reyndu aftur.`);
+        return;
+      }
+      encode(STR, n);
     } else if (str === "") {
       alert(`Þú gafst ekki upp streng. Reyndu aftur.`);
       return;
@@ -48,13 +43,14 @@ function play() {
       alert(`${input} er ekki heiltala á bilinu [1,31]. Reyndu aftur.`);
       return;
     }
+
     let str = prompt(`Gefðu upp strenginn sem á að afkóða með hliðrun ${n}:`);
     if (typeof str === 'string'){
-    let STR = str.toLocaleUpperCase();
-    if (invalid(STR)) {
-      alert(`Þú gafst upp stafi sem ekki er hægt að afkóða. Nota þarf stafi úr íslenska stafrófinu. Reyndu aftur.`);
-      return;
-    }
+      let STR = str.toLocaleUpperCase();
+      if (invalid(STR)) {
+        alert(`Þú gafst upp stafi sem ekki er hægt að afkóða. Nota þarf stafi úr íslenska stafrófinu. Reyndu aftur.`);
+        return;
+      }
     decode(STR, n);
     } else if (str === "") {
       alert(`Þú gafst ekki upp streng. Reyndu aftur.`);
@@ -89,7 +85,6 @@ function invalid(STR) {
   } else return true;
 }
 
-
 /**
  * Kóðar streng með því að hliðra honum um n stök.
  *
@@ -106,11 +101,10 @@ function encode(str, n) {
     let newind;
     
     if (ind + n < LETTERS.length) {
-    newind = ind + n; 
+      newind = ind + n; 
     } else {
-    newind = ind + n - LETTERS.length; 
+      newind = ind + n - LETTERS.length; 
     }
-    
     str_coded += (LETTERS[newind]);
   }
   alert(str_coded);
@@ -126,18 +120,17 @@ function encode(str, n) {
 function decode(str, n) {
   let str_decoded ="";
 
-for (let i = 0; i < str.length; i++) {
-  let ind = LETTERS.indexOf(str[i]);
-  let newind;
-  
-  if (ind - n < 0) {
-   newind = ind - n + LETTERS.length; 
-  } else {
-   newind = ind - n; 
+  for (let i = 0; i < str.length; i++) {
+    let ind = LETTERS.indexOf(str[i]);
+    let newind;
+
+    if (ind - n < 0) {
+      newind = ind - n + LETTERS.length; 
+    } else {
+      newind = ind - n; 
+    }
+    str_decoded += (LETTERS[newind]);  
   }
-  
-  str_decoded += (LETTERS[newind]);  
-} 
   alert(str_decoded);
 }
 
