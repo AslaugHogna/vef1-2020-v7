@@ -30,11 +30,11 @@ function play() {
     if (typeof str === 'string'){
     let STR = str.toLocaleUpperCase();
     if (invalid(STR)) {
-      alert(`Þú gafst upp stafi sem ekki er hægt að afkóða: Reyndu aftur.`);
+      alert(`Þú gafst upp stafi sem ekki er hægt að afkóða. Nota þarf stafi úr íslenska stafrófinu. Reyndu aftur.`);
       return;
     }
     encode(STR, n);
-    } else if (str == "") {
+    } else if (str === "") {
       alert(`Þú gafst ekki upp streng. Reyndu aftur.`);
       return;
     }
@@ -49,12 +49,17 @@ function play() {
       return;
     }
     let str = prompt(`Gefðu upp strenginn sem á að afkóða með hliðrun ${n}:`);
+    if (typeof str === 'string'){
     let STR = str.toLocaleUpperCase();
     if (invalid(STR)) {
-      alert(`Þú gafst upp stafi sem ekki er hægt að afkóða: Reyndu aftur.`);
+      alert(`Þú gafst upp stafi sem ekki er hægt að afkóða. Nota þarf stafi úr íslenska stafrófinu. Reyndu aftur.`);
       return;
     }
     decode(STR, n);
+    } else if (str === "") {
+      alert(`Þú gafst ekki upp streng. Reyndu aftur.`);
+      return;
+    }
   }
   
   else {
